@@ -45,6 +45,7 @@ function App() {
 
   const handleClearList = () => {
     setItems([]);
+    localStorage.removeItem("shoppinglist");
   };
 
   const handleDelete = (id) => {
