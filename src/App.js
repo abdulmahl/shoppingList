@@ -12,9 +12,7 @@ function App() {
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
@@ -43,6 +41,10 @@ function App() {
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setAndSaveItems(listItems);
+  };
+
+  const handleClearList = () => {
+    setItems([]);
   };
 
   const handleDelete = (id) => {
@@ -75,7 +77,7 @@ function App() {
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
-      <Footer length={items.length} />
+      <Footer length={items.length} onClear={handleClearList} />
     </div>
   );
 }

@@ -15,6 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 .App {
@@ -22,29 +23,45 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 2px);
-  max-width: 500px;
-  border: 1px solid mediumblue;
-  margin: auto;
+  height: calc(99vh - 2px);
+  max-width: 95%;
+  border: 1px solid steelblue;
+  margin: 0.3rem auto 0.3rem;
+  border-radius: 11px;
 }
 
 header {
   width: calc(100%);
   padding: 0.5rem 0.25em;
-  background-color: mediumblue;
-  color: aliceblue;
+  background-color: steelblue;
+  color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  border-radius: 10px 10px 0 0;
 }
 
 footer {
-  background-color: mediumblue;
+  background-color: steelblue;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  flex-direction: column;
   color: #fff;
   width: 100%;
   padding: 1rem;
+  border-radius: 0 0 10px 10px;
+}
+
+footer p {
+  font-size: 2rem;
+}
+
+p.time {
+  color: orange;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 main {
@@ -147,7 +164,7 @@ button {
   padding: 0.5rem;
   font-size: 1rem;
   background-color: aliceblue;
-  color: mediumblue;
+  color: steelblue;
   cursor: pointer;
 }
 
