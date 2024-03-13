@@ -3,24 +3,36 @@ import SearchItem from "./SearchItem";
 import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("shoppinglist"))
+    JSON.parse(localStorage.getItem("shoppinglist")) || []
   );
-
   const [newItem, setNewItem] = useState("");
-
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+
+  }, []);
 
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
     localStorage.setItem("shoppinglist", JSON.stringify(newItems));
   };
 
+  const guid = () => {
+    let uniqueId = parseInt(Math.random() * Number.MAX_SAFE_INTEGER);
+    uniqueId = uniqueId
+      .toString(36)
+      .slice(0, 6)
+      .padStart(6, "3")
+      .toLocaleUpperCase();
+    return uniqueId;
+  };
+
   const addItem = (item) => {
-    const id = items.length ? items[items.length - 1].id + 1 : 1;
+    const id = guid();
     const myNewItem = { id, checked: false, item };
     const listItems = [...items, myNewItem];
     setAndSaveItems(listItems);
